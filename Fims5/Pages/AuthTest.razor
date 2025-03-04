@@ -1,0 +1,46 @@
+﻿@page "/authtest"
+@using Microsoft.AspNetCore.Identity
+@using Fims5.Entities;
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+@using Telerik.FontIcons;
+
+@inject ILogger<AuthTest> Logger
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
+
+<PageTitle>Auth Test</PageTitle>
+
+<PageTitle>FST Digital System</PageTitle>
+<div class="card-header text-lg-center pt-2 pb-2 fw-bold px-9"> 로그인 테스트 </div>
+
+<AuthorizeView>
+    <Authorized>
+        <h2>@gStringUser 가(이) 로그인 되었습니다.</h2>
+    </Authorized>
+    <NotAuthorized>
+        <h2>    로그인을 먼저 하세요</h2>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    public string gStringUser = "A";
+    protected override async Task OnInitializedAsync()
+    {
+
+        string strUser = "";
+        try
+        {
+            strUser = UserManager.GetUserName(HttpContextAccessor.HttpContext.User);
+            gStringUser = strUser;
+
+            Logger.LogInformation("Fims5 Initialized: user=" + strUser);
+        } catch
+        {
+            
+        }
+    }
+
+}

@@ -1,0 +1,32 @@
+﻿@page
+@model Fims5.Areas.Identity.Pages.Account.LoginModel
+
+<div class="col-xs-1 " align="center">
+    <div class="text-start text-black" style="max-width:500px">
+        <section>
+            <form id="account" method="post">
+                <h2 class="text-center mb-5">Login</h2>
+                <div asp-validation-summary="ModelOnly" class="text-danger" aria-required="true"></div>
+                <ht />
+
+                <div>
+                    <label asp-for="Input.Name" class="form-label" color="black">Id</label>
+                    <input asp-for="Input.Name" class="form-control mb-3" />
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Input.Password" class="form-label" color="black">Password</label>
+                    <input asp-for="Input.Password" class="form-control mb-3" aria-required="true" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <button id="login-submit" typeof="submit" class="w-100btn btn-lg btn-primarymt-4">Login</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@{
+}

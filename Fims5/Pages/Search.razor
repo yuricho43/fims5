@@ -1,0 +1,21 @@
+﻿@page "/search"
+@using Fims5.Entities;
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+@using Telerik.FontIcons;
+
+@inject ILogger<AuthTest> Logger
+
+<PageTitle>검색</PageTitle>
+
+<PageTitle>FST Digital System</PageTitle>
+<div class="card-header text-lg-center pt-2 pb-2 fw-bold px-9"> 데이타 검색 </div>
+
+<AuthorizeView>
+    <Authorized>
+        <h2>데이타 검색 Page 입니다.</h2>
+    </Authorized>
+    <NotAuthorized>
+        <h2>    로그인을 먼저 하세요</h2>
+    </NotAuthorized>
+</AuthorizeView>

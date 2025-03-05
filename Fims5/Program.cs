@@ -1,5 +1,6 @@
 using Fims5.Data;
 using Fims5.Entities;
+using Fims5.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
@@ -55,6 +56,7 @@ builder.Host.UseSerilog((context, configuration) => configuration
 
 //--------------------------------------------
 builder.Services.AddTelerikBlazor();
+builder.Services.AddScoped<FimsIdentityService>();        // 2025.1.7 for 사용자 추가
 
 //========================================================================
 var app = builder.Build();
